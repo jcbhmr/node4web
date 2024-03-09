@@ -1,18 +1,23 @@
-export default function assert() {
+import { AssertionError, innerOk } from "./utils.js";
 
+export function ok<A>(value: A, message?: string | Error): asserts value {
+  innerOk(ok, arguments.length, value, message);
 }
 
-export interface AssertionErrorOptions<A, E> {
-    message?: string;
-    operator?: string;
-    stackStartFn?: Function
-    actual?: A,
-    expected?: E,
-}
+export function equal() {}
 
-export class AssertionError<A, E> extends Error {
-    constructor(options: AssertionErrorOptions<A, E>) {
-        const message = options.message ?? generateMessage(options.actual, options.operator, options.expected)
-        super(message)
-    }
-}
+export function strictEqual() {}
+
+export function deepEqual() {}
+
+export function deepStrictEqual() {}
+
+ok.ok = ok;
+ok.equal = equal;
+ok.strictEqual = strictEqual;
+ok.deepEqual = deepEqual;
+ok.AssertionError = AssertionError;
+const assert = ok;
+export default assert;
+
+export { AssertionError };

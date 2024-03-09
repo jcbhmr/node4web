@@ -1,14 +1,24 @@
 {
-    "type": "module",
-    "devDependencies": {
-        "@types/node": "latest",
-        "check-dts": "^0.7.2",
-        "prettier": "^3.2.5",
-        "typescript": "latest"
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "latest",
+    "check-dts": "^0.7.2",
+    "prettier": "^3.2.5",
+    "typescript": "latest"
+  },
+  "exports": {
+    "./assert": {
+      "node": null,
+      "default": "./dist/assert/index.js"
     },
-    "scripts": {
-        "test": "tsc && node --test && check-dts",
-        "build": "tsc",
-        "format": "prettier -w ."
+    "./assert/strict": {
+      "node": null,
+      "default": "./dist/assert/strict.js"
     }
+  },
+  "scripts": {
+    "test": "tsc && node --test && check-dts",
+    "build": "tsc",
+    "format": "prettier -w ."
+  }
 }
