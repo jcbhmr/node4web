@@ -8,12 +8,10 @@
   },
   "exports": {
     "./assert": {
-      "node": null,
-      "default": "./dist/assert/index.js"
+      "browser": "./dist/assert/index.js"
     },
     "./assert/strict": {
-      "node": null,
-      "default": "./dist/assert/strict.js"
+      "browser": "./dist/assert/strict.js"
     }
   },
   "scripts": {
